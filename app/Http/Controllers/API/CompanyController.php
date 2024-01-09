@@ -2,22 +2,29 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Helpers\ResponseFormatter;
-use App\Http\Controllers\Controller;
+use Exception;
+use App\Models\User;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Helpers\ResponseFormatter;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CreateCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 
 class CompanyController extends Controller
 {
-    public function all(Request $request)
+    public function fetch(Request $request)
     {
         $id = $request->input('id');
         $name = $request->input('name');
         $limit = $request->input('limit', 10);
-
+        $companyQuery = Company::with(['users'])->whereHas('users', function ($query) {
+            $query->where('user_id', Auth::id());
+        });
         //company?id=$id
         if ($id) {
-            $company = Company::with(['users'])->find($id);
+            $company = $companyQuery->find($id);
 
             if ($company) {
                 return ResponseFormatter::success($company, 'Company found');
@@ -26,7 +33,7 @@ class CompanyController extends Controller
             return ResponseFormatter::error('Company not found', 404);
         }
 
-        $companies = Company::with(['users']);
+        $companies = $companyQuery;
         //company?name=$name
         if ($name) {
             $companies->where('name', 'like', '%' . $name . '%');
@@ -36,5 +43,58 @@ class CompanyController extends Controller
             $companies->paginate($limit),
             'Companies found'
         );
+    }
+
+    public function create(CreateCompanyRequest $request)
+    {
+        try {
+            //upload logo
+            if ($request->hasFile('logo')) {
+                $path = $request->file('logo')->store('public/logos');
+            }
+            //create company
+            $company = Company::create([
+                'name' => $request->name,
+                'logo' => $path,
+            ]);
+
+            if (!$company) {
+                throw new Exception('Company not created');
+            }
+            //attach company to user
+            $user = User::find(Auth::id());
+            $user->companies()->attach($company->id);
+            //load users at company
+            $company->load('users');
+
+            return ResponseFormatter::success($company, 'Company created');
+        } catch (Exception $e) {
+            return ResponseFormatter::error($e->getMessage(), 500);
+        }
+    }
+
+    public function update(UpdateCompanyRequest $request, $id)
+    {
+        try {
+            //get company
+            $company = Company::find($id);
+
+            if (!$company) {
+                throw new Exception('Company not found');
+            }
+            //upload logo
+            if ($request->hasFile('logo')) {
+                $path = $request->file('logo')->store('public/logos');
+            }
+            //update company
+            $company->update([
+                'name' => $request->name,
+                'logo' => $path,
+            ]);
+
+            return ResponseFormatter::success($company, 'Company updated');
+        } catch (Exception $e) {
+            return ResponseFormatter::error($e->getMessage(), 500);
+        }
     }
 }
