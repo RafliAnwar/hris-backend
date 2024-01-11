@@ -1,0 +1,3434 @@
+{
+	"info": {
+		"_postman_id": "11dac7af-4086-489d-b23e-9e6650f3ec14",
+		"name": "hris-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "newjeans@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "Newjeans123*",
+									"type": "default"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "newjeans@gmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "password*",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:01:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:01:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 400,\n        \"status\": \"error\",\n        \"message\": \"Authentication failed\"\n    },\n    \"result\": null\n}"
+						},
+						{
+							"name": "Login Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "newjeans@gmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "Newjeans123*",
+											"type": "default"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:05:18 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:05:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Authenticated\"\n    },\n    \"result\": {\n        \"access_token\": \"5|ITYgTCNnogIJKuIeibKbhQpdb8QjPQTw6JvDeLV6f7491960\",\n        \"token_type\": \"Bearer\",\n        \"user\": {\n            \"id\": 66,\n            \"name\": \"NewJenas\",\n            \"email\": \"newjeans@gmail.com\",\n            \"email_verified_at\": null,\n            \"two_factor_confirmed_at\": null,\n            \"current_team_id\": null,\n            \"profile_photo_path\": null,\n            \"created_at\": \"2024-01-08T19:47:03.000000Z\",\n            \"updated_at\": \"2024-01-08T19:47:03.000000Z\",\n            \"profile_photo_url\": \"https://ui-avatars.com/api/?name=N&color=7F9CF5&background=EBF4FF\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "NewJenas",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "newjeans@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "Newjeans123*",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/register",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Error Pass",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "NewJenas",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "newjeans@gmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/register",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 17:46:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 17:46:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 400,\n        \"status\": \"error\",\n        \"message\": \"The password must be at least 8 characters.\"\n    },\n    \"result\": null\n}"
+						},
+						{
+							"name": "Register Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "NewJenas",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "newjeans@gmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "Newjeans123*",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/register",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 19:47:03 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 19:47:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Register Success\"\n    },\n    \"result\": {\n        \"access_token\": \"3|K5HR6uNMHbtXcNwZlcXrt1yD65Wn5DVeDW6EVt6V42cb35d4\",\n        \"token_type\": \"Bearer\",\n        \"user\": {\n            \"name\": \"NewJenas\",\n            \"email\": \"newjeans@gmail.com\",\n            \"updated_at\": \"2024-01-08T19:47:03.000000Z\",\n            \"created_at\": \"2024-01-08T19:47:03.000000Z\",\n            \"id\": 66,\n            \"profile_photo_url\": \"https://ui-avatars.com/api/?name=N&color=7F9CF5&background=EBF4FF\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5|ITYgTCNnogIJKuIeibKbhQpdb8QjPQTw6JvDeLV6f7491960",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "Nama Perusahaan",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/logout",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/logout",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:07:18 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:07:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Logout Success\"\n    },\n    \"result\": true\n}"
+						},
+						{
+							"name": "Logout Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/logout",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:09:53 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:09:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{API_URL}}/user",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/user",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:14:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:14:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Fetch Success\"\n    },\n    \"result\": {\n        \"id\": 66,\n        \"name\": \"NewJenas\",\n        \"email\": \"newjeans@gmail.com\",\n        \"email_verified_at\": null,\n        \"two_factor_confirmed_at\": null,\n        \"current_team_id\": null,\n        \"profile_photo_path\": null,\n        \"created_at\": \"2024-01-08T19:47:03.000000Z\",\n        \"updated_at\": \"2024-01-08T19:47:03.000000Z\",\n        \"profile_photo_url\": \"https://ui-avatars.com/api/?name=N&color=7F9CF5&background=EBF4FF\"\n    }\n}"
+						},
+						{
+							"name": "Fetch Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/user",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:15:08 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Jan 2024 20:15:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Fetch Companies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{API_URL}}/company?name=ador&limit=10&id=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"company"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ador"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "YG Ent",
+									"type": "default"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/USER/Downloads/logo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/company",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Company Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "YG Ent",
+											"type": "default"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/C:/Users/USER/Downloads/logo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/company",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Jan 2024 09:32:02 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Jan 2024 09:32:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Company created\"\n    },\n    \"result\": {\n        \"name\": \"YG Ent\",\n        \"logo\": \"public/logos/6EvofMnC7761SukB8UOgeRwb4zbTFH3AJaVtRLwk.png\",\n        \"updated_at\": \"2024-01-09T09:32:02.000000Z\",\n        \"created_at\": \"2024-01-09T09:32:02.000000Z\",\n        \"id\": 13,\n        \"users\": [\n            {\n                \"id\": 66,\n                \"name\": \"NewJenas\",\n                \"email\": \"newjeans@gmail.com\",\n                \"email_verified_at\": null,\n                \"two_factor_confirmed_at\": null,\n                \"current_team_id\": null,\n                \"profile_photo_path\": null,\n                \"created_at\": \"2024-01-08T19:47:03.000000Z\",\n                \"updated_at\": \"2024-01-08T19:47:03.000000Z\",\n                \"profile_photo_url\": \"https://ui-avatars.com/api/?name=N&color=7F9CF5&background=EBF4FF\",\n                \"pivot\": {\n                    \"company_id\": 13,\n                    \"user_id\": 66\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "YG Ent",
+									"type": "default"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/USER/Downloads/logo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/company/update/13",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"company",
+								"update",
+								"13"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Company Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "YG Ent",
+											"type": "default"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/C:/Users/USER/Downloads/logo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/company/update/13",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"company",
+										"update",
+										"13"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Jan 2024 13:15:44 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 09 Jan 2024 13:15:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Company updated\"\n    },\n    \"result\": {\n        \"id\": 13,\n        \"name\": \"YG Ent\",\n        \"logo\": \"public/logos/oI2h4jM8UwTAlf1RCOa7cDp8KY1CPsi5zT0fFMDY.png\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-01-09T09:32:02.000000Z\",\n        \"updated_at\": \"2024-01-09T13:15:44.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "Fetch Teams",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{API_URL}}/team?name=Blackpink&company_id=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"team"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Blackpink"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "31",
+									"disabled": true
+								},
+								{
+									"key": "company_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Teams Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/team?company_id=1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"team"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "ador",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "12",
+											"disabled": true
+										},
+										{
+											"key": "company_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:34:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:34:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Companies found\"\n    },\n    \"result\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 2,\n                \"name\": \"ut\",\n                \"icon\": \"https://via.placeholder.com/640x480.png/007700?text=recusandae\",\n                \"company_id\": 1,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:22:44.000000Z\",\n                \"updated_at\": \"2024-01-08T10:22:44.000000Z\"\n            },\n            {\n                \"id\": 16,\n                \"name\": \"earum\",\n                \"icon\": \"https://via.placeholder.com/640x480.png/0033cc?text=quas\",\n                \"company_id\": 1,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:22:44.000000Z\",\n                \"updated_at\": \"2024-01-08T10:22:44.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/team?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/team?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/team?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/team\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "BlackPink ex2",
+									"type": "default"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/USER/Downloads/logo.png"
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/team",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"team"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Team Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "BlackPink ex1",
+											"type": "default"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/USER/Downloads/logo.png"
+										},
+										{
+											"key": "company_id",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/team",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"team"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:41:56 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:41:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Team created\"\n    },\n    \"result\": {\n        \"name\": \"BlackPink ex1\",\n        \"icon\": \"public/icons/z5vi5bF3Fnu3SLto2AeARHXaJA99DpT8UMVArTdm.png\",\n        \"company_id\": \"1\",\n        \"updated_at\": \"2024-01-10T13:41:56.000000Z\",\n        \"created_at\": \"2024-01-10T13:41:56.000000Z\",\n        \"id\": 31\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Team",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "BlackPink ex-edit2",
+									"type": "default"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/USER/Downloads/logo.png",
+									"disabled": true
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/team/update/32",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"team",
+								"update",
+								"32"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Team Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "BlackPink ex-edit1",
+											"type": "default"
+										},
+										{
+											"key": "icon",
+											"type": "file",
+											"src": "/C:/Users/USER/Downloads/logo.png"
+										},
+										{
+											"key": "company_id",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/team/update/31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"team",
+										"update",
+										"31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:47:40 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:47:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Team updated\"\n    },\n    \"result\": {\n        \"id\": 31,\n        \"name\": \"BlackPink ex-edit1\",\n        \"icon\": \"public/icons/tOIK8zS1dHEQF7WYCs7RgvrRrLwqyySQA8xhgeHy.png\",\n        \"company_id\": \"1\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-01-10T13:41:56.000000Z\",\n        \"updated_at\": \"2024-01-10T13:47:40.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Team",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/team/32",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"team",
+								"32"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Team Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/team/32",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"team",
+										"32"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:52:29 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 13:52:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": null\n    },\n    \"result\": \"Team deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Fetch Employee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{API_URL}}/employee?team_id=6",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"employee"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Blackpink",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "31",
+									"disabled": true
+								},
+								{
+									"key": "team_id",
+									"value": "6"
+								},
+								{
+									"key": "role_id",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Employee Single",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/employee?id=31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Blackpink",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "31"
+										},
+										{
+											"key": "team_id",
+											"value": "6",
+											"disabled": true
+										},
+										{
+											"key": "role_id",
+											"value": "4",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "age",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:00:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:00:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Employee found\"\n    },\n    \"result\": {\n        \"id\": 31,\n        \"name\": \"Merl Beatty\",\n        \"email\": \"aylin.swift@example.net\",\n        \"gender\": \"FEMALE\",\n        \"age\": 36,\n        \"phone\": \"(470) 514-4914\",\n        \"photo\": \"https://via.placeholder.com/640x480.png/00ff44?text=dolor\",\n        \"team_id\": 2,\n        \"role_id\": 45,\n        \"is_verified\": 0,\n        \"verified_at\": null,\n        \"deleted_at\": null,\n        \"created_at\": \"2024-01-08T10:54:28.000000Z\",\n        \"updated_at\": \"2024-01-08T10:54:28.000000Z\",\n        \"team\": {\n            \"id\": 2,\n            \"name\": \"ut\",\n            \"icon\": \"https://via.placeholder.com/640x480.png/007700?text=recusandae\",\n            \"company_id\": 1,\n            \"deleted_at\": null,\n            \"created_at\": \"2024-01-08T10:22:44.000000Z\",\n            \"updated_at\": \"2024-01-08T10:22:44.000000Z\"\n        },\n        \"role\": {\n            \"id\": 45,\n            \"name\": \"Konsultan\",\n            \"company_id\": 3,\n            \"deleted_at\": null,\n            \"created_at\": \"2024-01-08T10:39:00.000000Z\",\n            \"updated_at\": \"2024-01-08T10:39:00.000000Z\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Fetch Employee Multiple",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/employee?team_id=6",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"employee"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Blackpink",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "31",
+											"disabled": true
+										},
+										{
+											"key": "team_id",
+											"value": "6"
+										},
+										{
+											"key": "role_id",
+											"value": "4",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "age",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:01:07 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:01:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Companies found\"\n    },\n    \"result\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"Prof. Emily Zulauf\",\n                \"email\": \"rgleichner@example.net\",\n                \"gender\": \"FEMALE\",\n                \"age\": 26,\n                \"phone\": \"(740) 516-1560\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/0066ee?text=distinctio\",\n                \"team_id\": 6,\n                \"role_id\": 4,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:28.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:28.000000Z\"\n            },\n            {\n                \"id\": 26,\n                \"name\": \"Stewart Cruickshank\",\n                \"email\": \"raul.rowe@example.com\",\n                \"gender\": \"MALE\",\n                \"age\": 47,\n                \"phone\": \"+1-605-907-2839\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/00bb99?text=dolorem\",\n                \"team_id\": 6,\n                \"role_id\": 34,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:28.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:28.000000Z\"\n            },\n            {\n                \"id\": 65,\n                \"name\": \"Dr. Cecile Gorczany V\",\n                \"email\": \"bharber@example.org\",\n                \"gender\": \"MALE\",\n                \"age\": 17,\n                \"phone\": \"+1 (717) 985-4558\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/00ffdd?text=praesentium\",\n                \"team_id\": 6,\n                \"role_id\": 28,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            },\n            {\n                \"id\": 84,\n                \"name\": \"Susie Boyer\",\n                \"email\": \"carter45@example.org\",\n                \"gender\": \"FEMALE\",\n                \"age\": 29,\n                \"phone\": \"718.980.9182\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/0099cc?text=voluptatem\",\n                \"team_id\": 6,\n                \"role_id\": 21,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            },\n            {\n                \"id\": 91,\n                \"name\": \"Jackie Heathcote\",\n                \"email\": \"gherzog@example.com\",\n                \"gender\": \"MALE\",\n                \"age\": 45,\n                \"phone\": \"(430) 626-5775\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/00bbbb?text=quam\",\n                \"team_id\": 6,\n                \"role_id\": 23,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            },\n            {\n                \"id\": 95,\n                \"name\": \"Hazle Jaskolski I\",\n                \"email\": \"mclaughlin.jane@example.org\",\n                \"gender\": \"FEMALE\",\n                \"age\": 53,\n                \"phone\": \"810.310.3733\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/00ee99?text=officia\",\n                \"team_id\": 6,\n                \"role_id\": 42,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            },\n            {\n                \"id\": 263,\n                \"name\": \"Ubaldo Prosacco\",\n                \"email\": \"macejkovic.jermey@example.org\",\n                \"gender\": \"FEMALE\",\n                \"age\": 25,\n                \"phone\": \"+1-830-485-4229\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/00ddff?text=debitis\",\n                \"team_id\": 6,\n                \"role_id\": 19,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            },\n            {\n                \"id\": 370,\n                \"name\": \"Judy Fritsch\",\n                \"email\": \"tyreek64@example.org\",\n                \"gender\": \"FEMALE\",\n                \"age\": 41,\n                \"phone\": \"830-641-7127\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/0066aa?text=perspiciatis\",\n                \"team_id\": 6,\n                \"role_id\": 40,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            },\n            {\n                \"id\": 429,\n                \"name\": \"Ulises Vandervort\",\n                \"email\": \"mrath@example.org\",\n                \"gender\": \"MALE\",\n                \"age\": 36,\n                \"phone\": \"+1-424-417-2567\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/004411?text=animi\",\n                \"team_id\": 6,\n                \"role_id\": 45,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            },\n            {\n                \"id\": 434,\n                \"name\": \"Elsa Kuhn DVM\",\n                \"email\": \"albin.stracke@example.org\",\n                \"gender\": \"FEMALE\",\n                \"age\": 32,\n                \"phone\": \"+1-520-494-5248\",\n                \"photo\": \"https://via.placeholder.com/640x480.png/00aa44?text=soluta\",\n                \"team_id\": 6,\n                \"role_id\": 2,\n                \"is_verified\": 0,\n                \"verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:54:29.000000Z\",\n                \"updated_at\": \"2024-01-08T10:54:29.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/employee?page=1\",\n        \"from\": 1,\n        \"last_page\": 3,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/employee?page=3\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/employee?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/employee?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/employee?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/employee?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": \"http://127.0.0.1:8000/api/employee?page=2\",\n        \"path\": \"http://127.0.0.1:8000/api/employee\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 10,\n        \"total\": 28\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Contoh Employee 1",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "coba@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/USER/Downloads/logo.png"
+								},
+								{
+									"key": "gender",
+									"value": "MALE",
+									"type": "default"
+								},
+								{
+									"key": "age",
+									"value": "31",
+									"type": "default"
+								},
+								{
+									"key": "phone",
+									"value": "62814455678",
+									"type": "default"
+								},
+								{
+									"key": "team_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "role_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/employee",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Employee Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Contoh Employee 1",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "coba@gmail.com",
+											"type": "default"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/USER/Downloads/logo.png"
+										},
+										{
+											"key": "gender",
+											"value": "MALE",
+											"type": "default"
+										},
+										{
+											"key": "age",
+											"value": "31",
+											"type": "default"
+										},
+										{
+											"key": "phone",
+											"value": "62814455678",
+											"type": "default"
+										},
+										{
+											"key": "team_id",
+											"value": "1",
+											"type": "default"
+										},
+										{
+											"key": "role_id",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/employee",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"employee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:25:01 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:25:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Employee created\"\n    },\n    \"result\": {\n        \"name\": \"Contoh Employee 1\",\n        \"email\": \"coba@gmail.com\",\n        \"gender\": \"MALE\",\n        \"age\": \"31\",\n        \"phone\": \"62814455678\",\n        \"photo\": \"public/photos/ns3rBguzRWNA9sc1vZiMNQ6PEB3rFtMdkN5DWuXB.png\",\n        \"team_id\": \"1\",\n        \"role_id\": \"1\",\n        \"updated_at\": \"2024-01-11T10:25:01.000000Z\",\n        \"created_at\": \"2024-01-11T10:25:01.000000Z\",\n        \"id\": 1001\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Contoh Employee 1001 edit",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "coba@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/USER/Downloads/logo.png"
+								},
+								{
+									"key": "gender",
+									"value": "MALE",
+									"type": "default"
+								},
+								{
+									"key": "age",
+									"value": "33",
+									"type": "default"
+								},
+								{
+									"key": "team_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "role_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "phone",
+									"value": "62814455678",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/employee/update/1001",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"employee",
+								"update",
+								"1001"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Employee Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Contoh Employee 1001 edit",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "coba@gmail.com",
+											"type": "default"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/USER/Downloads/logo.png"
+										},
+										{
+											"key": "gender",
+											"value": "MALE",
+											"type": "default"
+										},
+										{
+											"key": "age",
+											"value": "33",
+											"type": "default"
+										},
+										{
+											"key": "team_id",
+											"value": "1",
+											"type": "default"
+										},
+										{
+											"key": "role_id",
+											"value": "1",
+											"type": "default"
+										},
+										{
+											"key": "phone",
+											"value": "62814455678",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/employee/update/1001",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"employee",
+										"update",
+										"1001"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:31:47 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:31:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Employee updated\"\n    },\n    \"result\": {\n        \"id\": 1001,\n        \"name\": \"Contoh Employee 1001 edit\",\n        \"email\": \"coba@gmail.com\",\n        \"gender\": \"MALE\",\n        \"age\": \"33\",\n        \"phone\": \"62814455678\",\n        \"photo\": \"public/photos/NuhJEL8DGTpAuBWDmTx6oVBj4XrQdOj1Y8Ur5uwV.png\",\n        \"team_id\": \"1\",\n        \"role_id\": \"1\",\n        \"is_verified\": 0,\n        \"verified_at\": null,\n        \"deleted_at\": null,\n        \"created_at\": \"2024-01-11T10:25:01.000000Z\",\n        \"updated_at\": \"2024-01-11T10:31:47.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/employee/1001",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"employee",
+								"1001"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Employee Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/employee/1001",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"employee",
+										"1001"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:32:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 10:32:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": null\n    },\n    \"result\": \"Employee deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Fetch Roles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{API_URL}}/role?company_id=1&with_responsibilities=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"role"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "company_id",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "Kon",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "with_responsibilities",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Roles Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/role?company_id=1&with_responsibilities=1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"role"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "company_id",
+											"value": "1"
+										},
+										{
+											"key": "name",
+											"value": "Kon",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "with_responsibilities",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:18:06 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:18:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Companies found\"\n    },\n    \"result\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 24,\n                \"name\": \"Konsultan\",\n                \"company_id\": 1,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"updated_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"responsibilities\": [\n                    {\n                        \"id\": 41,\n                        \"name\": \"target customized infrastructures\",\n                        \"role_id\": 24,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 114,\n                        \"name\": \"engineer seamless ROI\",\n                        \"role_id\": 24,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 139,\n                        \"name\": \"leverage one-to-one partnerships\",\n                        \"role_id\": 24,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    }\n                ]\n            },\n            {\n                \"id\": 33,\n                \"name\": \"Karyawan Honorer\",\n                \"company_id\": 1,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"updated_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"responsibilities\": [\n                    {\n                        \"id\": 2,\n                        \"name\": \"disintermediate mission-critical convergence\",\n                        \"role_id\": 33,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 67,\n                        \"name\": \"grow sexy e-tailers\",\n                        \"role_id\": 33,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 69,\n                        \"name\": \"seize enterprise mindshare\",\n                        \"role_id\": 33,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 89,\n                        \"name\": \"productize intuitive e-commerce\",\n                        \"role_id\": 33,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 124,\n                        \"name\": \"optimize bricks-and-clicks functionalities\",\n                        \"role_id\": 33,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    }\n                ]\n            },\n            {\n                \"id\": 48,\n                \"name\": \"Belum / Tidak Bekerja\",\n                \"company_id\": 1,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"updated_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"responsibilities\": [\n                    {\n                        \"id\": 94,\n                        \"name\": \"revolutionize impactful initiatives\",\n                        \"role_id\": 48,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 126,\n                        \"name\": \"extend best-of-breed deliverables\",\n                        \"role_id\": 48,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 143,\n                        \"name\": \"utilize dot-com experiences\",\n                        \"role_id\": 48,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 171,\n                        \"name\": \"cultivate viral relationships\",\n                        \"role_id\": 48,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    }\n                ]\n            },\n            {\n                \"id\": 49,\n                \"name\": \"Penata Busana\",\n                \"company_id\": 1,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"updated_at\": \"2024-01-08T10:39:00.000000Z\",\n                \"responsibilities\": [\n                    {\n                        \"id\": 29,\n                        \"name\": \"iterate next-generation networks\",\n                        \"role_id\": 49,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 90,\n                        \"name\": \"seize magnetic metrics\",\n                        \"role_id\": 49,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 115,\n                        \"name\": \"incubate dot-com supply-chains\",\n                        \"role_id\": 49,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    },\n                    {\n                        \"id\": 134,\n                        \"name\": \"incentivize back-end portals\",\n                        \"role_id\": 49,\n                        \"deleted_at\": null,\n                        \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                        \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n                    }\n                ]\n            },\n            {\n                \"id\": 51,\n                \"name\": \"Full-Stack Dev edit\",\n                \"company_id\": 1,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-10T16:47:08.000000Z\",\n                \"updated_at\": \"2024-01-10T16:47:42.000000Z\",\n                \"responsibilities\": []\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/role?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/role?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/role?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/role\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 5,\n        \"total\": 5\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "del example",
+									"type": "default"
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/role",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Role Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "FullStackDev",
+											"type": "default"
+										},
+										{
+											"key": "company_id",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/role",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"role"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 16:47:08 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 16:47:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Role created\"\n    },\n    \"result\": {\n        \"name\": \"FullStackDev\",\n        \"company_id\": \"1\",\n        \"updated_at\": \"2024-01-10T16:47:08.000000Z\",\n        \"created_at\": \"2024-01-10T16:47:08.000000Z\",\n        \"id\": 51\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Full-Stack Dev edit",
+									"type": "default"
+								},
+								{
+									"key": "company_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/role/update/51",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"role",
+								"update",
+								"51"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Role Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Full-Stack Dev edit",
+											"type": "default"
+										},
+										{
+											"key": "company_id",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/role/update/51",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"role",
+										"update",
+										"51"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 16:47:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 16:47:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Role updated\"\n    },\n    \"result\": {\n        \"id\": 51,\n        \"name\": \"Full-Stack Dev edit\",\n        \"company_id\": \"1\",\n        \"deleted_at\": null,\n        \"created_at\": \"2024-01-10T16:47:08.000000Z\",\n        \"updated_at\": \"2024-01-10T16:47:42.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/role/52",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"role",
+								"52"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Role Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/role/52",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"role",
+										"52"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 16:49:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Jan 2024 16:49:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": null\n    },\n    \"result\": \"Role deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Responsibility",
+			"item": [
+				{
+					"name": "Fetch Responsibility",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{API_URL}}/responsibility?role_id=2",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"responsibility"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "target",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "role_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fetch Responsibility Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{API_URL}}/responsibility?role_id=2",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"responsibility"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "target",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "12",
+											"disabled": true
+										},
+										{
+											"key": "role_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:04:32 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:04:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Responsibilities found\"\n    },\n    \"result\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 55,\n                \"name\": \"redefine next-generation portals\",\n                \"role_id\": 2,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n            },\n            {\n                \"id\": 169,\n                \"name\": \"envisioneer killer bandwidth\",\n                \"role_id\": 2,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n            },\n            {\n                \"id\": 194,\n                \"name\": \"grow cross-media vortals\",\n                \"role_id\": 2,\n                \"deleted_at\": null,\n                \"created_at\": \"2024-01-08T10:45:35.000000Z\",\n                \"updated_at\": \"2024-01-08T10:45:35.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/responsibility?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/responsibility?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/responsibility?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/responsibility\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 3,\n        \"total\": 3\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Responsibility",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Contoh Responsibility 1",
+									"type": "default"
+								},
+								{
+									"key": "role_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/responsibility",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"responsibility"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Responsibility Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Contoh Responsibility 1",
+											"type": "default"
+										},
+										{
+											"key": "role_id",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/responsibility",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"responsibility"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:05:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:05:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": \"Responsibility created\"\n    },\n    \"result\": {\n        \"name\": \"Contoh Responsibility 1\",\n        \"role_id\": \"1\",\n        \"updated_at\": \"2024-01-11T08:05:45.000000Z\",\n        \"created_at\": \"2024-01-11T08:05:45.000000Z\",\n        \"id\": 201\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Responsibility",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/responsibility/201",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"responsibility",
+								"201"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Responsibility Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/responsibility/201",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"responsibility",
+										"201"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:06:45 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jan 2024 08:06:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.17"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meta\": {\n        \"code\": 200,\n        \"status\": \"success\",\n        \"message\": null\n    },\n    \"result\": \"Responsibility deleted\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

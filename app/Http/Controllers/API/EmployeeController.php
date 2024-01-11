@@ -24,6 +24,7 @@ class EmployeeController extends Controller
         $team_id = $request->input('team_id');
         $role_id = $request->input('role_id');
         $limit = $request->input('limit', 10);
+        $company_id = $request->input('company_id');
 
 
         $employeeQuery = Employee::query();
@@ -56,12 +57,18 @@ class EmployeeController extends Controller
             $employees->where('phone', 'like', '%' . $phone . '%');
         }
 
-        if($role_id){
+        if ($role_id) {
             $employees->where('role_id', $role_id);
         }
 
-        if($team_id){
+        if ($team_id) {
             $employees->where('team_id', $team_id);
+        }
+        //employee sort by company through team model that has company_id
+        if ($company_id) {
+            $employees->whereHas('team', function ($q) use ($company_id) {
+                $q->where('company_id', $company_id);
+            });
         }
 
         return ResponseFormatter::success(
