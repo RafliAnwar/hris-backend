@@ -28,6 +28,21 @@ class CompanyController extends Controller
 
             if ($company) {
                 return ResponseFormatter::success($company, 'Company found');
+                //without response formatter
+                // return response()->json([
+                //     'meta' => [
+                //         'code' => 200,
+                //         'status' => 'success',
+                //         'message' => "Company found",
+                //     ],
+                //     'result' => [
+                //         'id'=>$company->id,
+                //         'name' => $company->name,
+                //         'logo' => $company->logo,
+                //         'created_at' => $company->created_at,
+                //         'users' => $company->users,
+                //     ],
+                // ], 200);
             }
 
             return ResponseFormatter::error('Company not found', 404);
@@ -43,6 +58,27 @@ class CompanyController extends Controller
             $companies->paginate($limit),
             'Companies found'
         );
+
+        // without response formatter
+        // $resultArray = [];
+        // foreach ($companies->paginate($limit) as $c) {
+        //     $resultArray[] = [ 
+        //         'id' => $c->id,
+        //         'name' => $c->name,
+        //         'logo' => $c->logo,
+        //         'created_at' => $c->created_at,
+        //         'users' => $c->users,
+        //     ];
+        // }
+
+        // return response()->json([
+        //     'meta' => [
+        //         'code' => 200,
+        //         'status' => 'success',
+        //         'message' => "Company found",
+        //     ],
+        //     'result' => $resultArray
+        // ], 200);
     }
 
     public function create(CreateCompanyRequest $request)
